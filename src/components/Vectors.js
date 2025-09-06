@@ -261,3 +261,32 @@ export const ConfettiPiece = ({ color = '#FFB6C1', delay = 0 }) => (
     animationDelay: `${delay}s`
   }} />
 );
+
+export const BrideVector = ({ size = 80, color = '#FFE4E1' }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100">
+    {/* Head */}
+    <circle cx="50" cy="25" r="10" fill="#FFDAB9" stroke="#4A5568" strokeWidth="2" />
+
+    {/* Hair */}
+    <path d="M40 20 Q50 5 60 20" fill="#FFB6C1" />
+
+    {/* Body / Dress */}
+    <path
+      d="M35 35 Q50 90 65 35"
+      fill={color}
+      stroke="#4A5568"
+      strokeWidth="2"
+    />
+    <path d="M40 45 Q50 70 60 45" fill="#FFF" opacity="0.8" />
+
+    {/* Bouquet */}
+    <circle cx="50" cy="55" r="5" fill="#FF6B6B" stroke="#E91E63" strokeWidth="1" />
+
+    {/* Smile */}
+    <path d="M46 27 Q50 31 54 27" stroke="#4A5568" strokeWidth="1" fill="none" />
+
+    {/* Eyes */}
+    <circle cx="46" cy="23" r="1.5" fill="#4A5568" />
+    <circle cx="54" cy="23" r="1.5" fill="#4A5568" />
+  </svg>
+);
