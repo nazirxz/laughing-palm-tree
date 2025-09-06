@@ -1,0 +1,218 @@
+/* Pastel Color Palette */
+:root {
+  --pastel-pink: #FFB6C1;
+  --pastel-blue: #B6E5D8;
+  --pastel-yellow: #FFF2CC;
+  --pastel-purple: #E6E6FA;
+  --pastel-mint: #F0FFF0;
+  --pastel-peach: #FFDAB9;
+  --pastel-lavender: #F8F0FF;
+  --white: #FFFFFF;
+  --text-dark: #4A5568;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-blue));
+  color: var(--text-dark);
+}
+
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+}
+
+.scene.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cat-character {
+  width: 120px;
+  height: 120px;
+  background: var(--pastel-peach);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin: 20px;
+}
+
+.cat-character:hover {
+  transform: scale(1.1);
+}
+
+.cat-character::before {
+  content: '🐱';
+}
+
+.interactive-button {
+  background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin: 15px;
+}
+
+.interactive-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.dialog-box {
+  background: var(--white);
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin: 20px;
+  text-align: center;
+  max-width: 500px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.collectible {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.collectible:hover {
+  transform: scale(1.2);
+}
+
+.heart {
+  background: var(--pastel-pink);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart::before {
+  content: '❤️';
+}
+
+.star {
+  background: var(--pastel-yellow);
+  color: orange;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star::before {
+  content: '⭐';
+}
+
+.gift-box {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-mint));
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.gift-box:hover {
+  transform: rotateY(10deg) scale(1.1);
+}
+
+.gift-box::before {
+  content: '🎁';
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--pastel-pink);
+  animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.birthday-text {
+  font-size: 48px;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--pastel-pink), var(--pastel-purple), var(--pastel-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin: 20px 0;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+.progress-bar {
+  width: 300px;
+  height: 20px;
+  background: var(--pastel-lavender);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-blue));
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
