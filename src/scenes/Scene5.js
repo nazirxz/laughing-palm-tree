@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CatVector, CakeVector, PartyVector, HeartVector, StarVector, GiftBoxVector } from '../components/Vectors';
+import { CatVector, CakeVector, PartyVector, HeartVector, StarVector, GiftBoxVector, BrideVector } from '../components/Vectors';
 
 const Scene5 = ({ gameData }) => {
   const [showCatSpeech, setShowCatSpeech] = useState(false);
@@ -7,6 +7,7 @@ const Scene5 = ({ gameData }) => {
   const [showFinalButton, setShowFinalButton] = useState(false);
   const [confettiPieces, setConfettiPieces] = useState([]);
   const [musicPlaying, setMusicPlaying] = useState(false);
+  const [brideHappy, setBrideHappy] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setShowCatSpeech(true), 1000);
@@ -36,6 +37,10 @@ const Scene5 = ({ gameData }) => {
 
   const handleFinalHug = () => {
     alert('🐾❤️ Pelukan virtual dari kucing kecil dan semua teman-teman petualangan! Selamat ulang tahun yang terbaik, Rinan Dihana! Semoga tahun ini penuh dengan kebahagiaan, cinta, dan petualangan indah lainnya! 🎂✨🎉');
+  };
+
+  const handleBrideClick = () => {
+    setBrideHappy(!brideHappy);
   };
 
   return (
@@ -111,7 +116,7 @@ const Scene5 = ({ gameData }) => {
         </div>
 
         {/* Cat Character */}
-        <div 
+        <div
           style={{
             position: 'relative',
             marginBottom: '20px',
@@ -119,6 +124,18 @@ const Scene5 = ({ gameData }) => {
           }}
         >
           <CatVector size={100} color="#FFDAB9" />
+        </div>
+
+        {/* Bride Character */}
+        <div
+          onClick={handleBrideClick}
+          style={{
+            cursor: 'pointer',
+            marginBottom: '20px',
+            animation: brideHappy ? 'bounce 0.5s ease-in-out' : 'none'
+          }}
+        >
+          <BrideVector size={90} />
         </div>
       </div>
 
